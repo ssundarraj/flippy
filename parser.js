@@ -1,45 +1,17 @@
-function parseString(query){
-    query_arr = query.split(" ");
+function getFilters(){
+    var arr = [];
 
-    if(query_arr[0] == "search")
-    {
-        // search code
-        search_string = query.replace("search ","");
-        console.log(search_string);
-    }
-    else if(query_arr[0] == "include")
-    {
-        // include code 
-        search_string = query.replace("include ","");
-        console.log(search_string);
-    }
-    else if(query_arr[0] == "exclude")
-    {
-        // exclude code
-        search_string = query.replace("exclude ","");
-        console.log(search_string);
-    }
-  return search_string;
-}
-
-
-function getSearchKeywords(query){
-    $.ajax({
-        type: "POST",
-        url: "http://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+    $.each($('div.facet-title > h2'),function(id,val){
+        // console.log($(val).html());
+        if($.trim($(val).html()) != ""){
+            arr.push($.trim($(val).html()));
         }
-        data: {
-            'apikey': 'e6d05038ff5fe3c7ac9f6dae272b102fecd9c493',
-            'text': query,
-            'outputMode': 'json',
-
-        },
-        beforeSend: function(xhr) {
-            console.log("Extracting keywords")
-        }
-    }).done(function( data ) {
-      console.log(data);
     });
+    $.each($('li.facet'),function(id,val){
+        console.log($(val).html());
+        if($.trim($(val).attr("title")) != "")
+            arr.push($.trim($(val).attr("title")));
+    });
+    // console.log(arr);
+    return arr;
 }
