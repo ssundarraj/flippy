@@ -1,23 +1,26 @@
 function parseString(query)
 {
-	query = query.split(" ");
+	query_arr = query.split(" ");
 
-	if(query[0] == "search")
+	if(query_arr[0] == "search")
 	{
 		// search code
 		search_string = query.replace("search ","");
 		console.log(search_string);
+		return query;
 	}
-	else if(query[0] == "include")
+	else if(query_arr[0] == "include")
 	{
 		// include code	
 		search_string = query.replace("include ","");
 		console.log(search_string);
+		return query;
 	}
-	else if(query[0] == "exclude")
+	else if(query_arr[0] == "exclude")
 	{
 		// exclude code
 		search_string = query.replace("exclude ","");
 		console.log(search_string);
+		return query;
 	}
 }
