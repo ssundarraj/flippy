@@ -16,6 +16,10 @@ var d1 = document.createElement("script");
 d1.src = "http://localhost:8000/vendor/jquery.min.js";
 document.getElementsByTagName("body")[0].appendChild(d1);
 
+var d1 = document.createElement("script");
+d1.src = "http://localhost:8000/vendor/fuse.min.js";
+document.getElementsByTagName("body")[0].appendChild(d1);
+
 var d2 = document.createElement("script");
 d2.src = "http://localhost:8000/parser.js";
 document.getElementsByTagName("body")[0].appendChild(d2);
