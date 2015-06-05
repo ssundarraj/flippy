@@ -9,4 +9,3 @@ recognition.onresult = function(event) {
     // Add processing code here
 }
 */
-alert();
