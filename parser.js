@@ -39,9 +39,14 @@ function getSearchKeywords(query){
         beforeSend: function(xhr) {
             console.log("Extracting keywords")
         }
-    }).done(function( data ) {
-        console.log(data.keywords[0].text);
-        return data.keywords[0].text;
+    }).done(function(data) {
+        if(data.status == "OK" && data.keywords != undefined && data.keywords[0].text != undefined){
+            console.log(data.keywords[0].text);
+            return data.keywords[0].text;
+        }
+        else{
+            return "ERROR"
+        }
     });
 }
 
