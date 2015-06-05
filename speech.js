@@ -5,8 +5,10 @@ function getUserSpeechInput(callback){
         var voiceQueryString = event.results[0][0].transcript;
         console.log(voiceQueryString); //Full voice query
         var action = parseString(voiceQueryString);
-        getSearchKeywords(voiceQueryString, function(m){
-            callback(action,m);
+        getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
+            // console.log(m);
+            // console.log(action);
+            callback(action, m);
         });
     }
     recognition.start()
@@ -58,11 +60,12 @@ function getSearchKeywords(query,callback){
             // console.log("Extracting keywords")
         }
     }).done(function(data) {
+        console.log(data);
         if(data.status == "OK" && data.keywords != undefined && data.keywords[0].text != undefined){
             callback(data.keywords[0].text);
         }
         else{
-            return "ERROR"
+            callback("ERROR");
         }
     });    
 }
