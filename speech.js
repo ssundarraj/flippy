@@ -1,8 +1,13 @@
 function getUserSpeechInput(){
     var recognition = new webkitSpeechRecognition();
     recognition.onresult = function(event){
-        console.log(event.results[0][0].transcript);
-        return event.results[0][0].transcript;
+        var voiceQueryString = event.results[0][0].transcript;
+        console.log(voiceQueryString); //Full voice query
+        var action = parseString(voiceQueryString);
+        getSearchKeywords(voiceQueryString, function(m){
+            console.log(m); //keyword from api call
+            console.log(action); //action from parseString
+        });
     }
     recognition.start()
 }
@@ -16,28 +21,28 @@ function parseString(query){
     {
         // search code
         search_string = "search";
-        console.log(search_string);
+        // console.log(search_string);
         return search_string;
     }
     else if(query_arr[0] == "include")
     {
         // include code 
         search_string = "include";
-        console.log(search_string);
+        // console.log(search_string);
         return search_string;
     }
     else if(query_arr[0] == "exclude")
     {
         // exclude code
         search_string = "exclude";
-        console.log(search_string);
+        // console.log(search_string);
         return search_string;
     }
   return search_string;
 }
 
 
-function getSearchKeywords(query){
+function getSearchKeywords(query,callback){
     $.ajax({
         type: "POST",
         url: "http://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
@@ -50,15 +55,14 @@ function getSearchKeywords(query){
             'outputMode': 'json',
         },
         beforeSend: function(xhr) {
-            console.log("Extracting keywords")
+            // console.log("Extracting keywords")
         }
     }).done(function(data) {
         if(data.status == "OK" && data.keywords != undefined && data.keywords[0].text != undefined){
-            console.log(data.keywords[0].text);
-            return data.keywords[0].text;
+            callback(data.keywords[0].text);
         }
         else{
             return "ERROR"
         }
-    });
+    });    
 }
