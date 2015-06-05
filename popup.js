@@ -5,6 +5,6 @@ recognition.onresult = function(event) {
     for(var i=0; i<event.results.length; i++){
         a = a + event.results[i][0].transcript
     }
-    document.getElementById('result').innerHTML = a;
+    document.getElementById('result').innerHTML = parseString(a);
     // Add processing code here
 }
