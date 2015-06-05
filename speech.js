@@ -11,6 +11,7 @@ function getUserSpeechInput(callback, voiceBar){
             // console.log(m);
             // console.log(action);
             callback(action, m);
+            okayFlipkart();
         });
     }
     recognition.start()
@@ -24,7 +25,17 @@ function okayFlipkart()
     fkrecognition.onresult = function(event){
         var voiceQueryString = event.results[0][0].transcript;
         console.log(voiceQueryString); //Full voice query
-        console.log("insideonresult"+this);
+        // console.log("insideonresult"+this); // getting this = fkrecognition
+        
+        if(voiceQueryString == "ok flipkart")
+        {
+            this.stop();
+            $("#voiceSearch").trigger("click");
+        }
+        else
+        {
+            okayFlipkart();
+        }
     }
     fkrecognition.start()   
 }
