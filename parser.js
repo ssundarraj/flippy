@@ -29,7 +29,7 @@ function getSearchKeywords(query){
         url: "http://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
-        }
+        },
         data: {
             'apikey': 'e6d05038ff5fe3c7ac9f6dae272b102fecd9c493',
             'text': query,
@@ -40,6 +40,8 @@ function getSearchKeywords(query){
             console.log("Extracting keywords")
         }
     }).done(function( data ) {
-      console.log(data);
+        console.log(data.keywords[0].text);
+        return data.keywords[0].text;
     });
 }
+
