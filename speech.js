@@ -6,8 +6,6 @@ function getUserSpeechInput(callback){
         console.log(voiceQueryString); //Full voice query
         var action = parseString(voiceQueryString);
         getSearchKeywords(voiceQueryString, function(m){
-            console.log(m); //keyword from api call
-            console.log(action); //action from parseString
             callback(action,m);
         });
     }
