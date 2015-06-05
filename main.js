@@ -19,12 +19,12 @@ $("#voiceSearch")
 
 $("#voiceSearch").click(function(){
     getUserSpeechInput(domAction, function(data){
-    	$("#voiceSearch").val(data);
+        $("#voiceSearch").val(data);
     });
     $("#voiceSearch").blur();
 });
 
 (function(){
-	$("#voiceSearch").val(localStorage.getItem('vQuery'));
-	localStorage.setItem('vQuery', '');
+    $("#voiceSearch").val(localStorage.getItem('vQuery'));
+    localStorage.setItem('vQuery', '');
 })();
