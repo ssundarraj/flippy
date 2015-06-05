@@ -8,6 +8,7 @@ var domAction = function(eventType, data, options){
 			break;
 	}
 }
+
 function searchFK(data){
 	var searchBarInputs = $(".search-bar input");	
 	var searchBox = searchBarInputs[0],
@@ -15,6 +16,7 @@ function searchFK(data){
 	searchBox.value = data;
 	$(submitButton).trigger("click");
 }
+
 function filter(data){
 	
 }
