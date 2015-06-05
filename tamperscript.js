@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  enter something useful
 // @author       You
-// @match        http://www.flipkart.com/
+// @match        http://www.flipkart.com/*
 // @grant        none
 // ==/UserScript==
 //d.src = "https://rawgit.com/ssundarraj/fk-concierge/master/main.js";
