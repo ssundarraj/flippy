@@ -82,7 +82,7 @@ function parseString(query){
         search_string = "exclude";
         return search_string;
     }
-    else if(query_arr[0] == "add" && query_arr[0] == "to" && query_arr[0] == "cart" || query_arr[0] == "add" && query_arr[0] == "cart"){
+    else if((query_arr[0] == "add" && query_arr[1] == "to" && query_arr[2] == "cart") || (query_arr[0] == "add" && query_arr[1] == "cart")){
         // ^ "add to cart" or "add cart"
         search_string = "addcart";
         return search_string;
