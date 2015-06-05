@@ -1,4 +1,4 @@
-==UserScript==
+//==UserScript==
 // @name         My Fancy New Userscript
 // @namespace    http://your.homepage/
 // @version      0.1
