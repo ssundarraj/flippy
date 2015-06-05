@@ -1,11 +1,16 @@
-/*var recognition = new webkitSpeechRecognition();
-recognition.onresult = function(event) {
-    console.log(event);
-    var a = "";
-    for(var i=0; i<event.results.length; i++){
-        a = a + event.results[i][0].transcript
+$("#fk-header-id").css("position", "relative");
+$("#fk-mainhead-id").css("top", "50px");
+$(".pbo-sticky").hide();
+$(".shortListButton").hide();
+
+var mbar = '<div style="background:#000;width:100%;height:50px;z-index:100000000;top:0;left:0;position:fixed;">    <input type="text">        <button> voice</button>        </div>';
+$("body").prepend(mbar);
+
+$(window).scroll(function() {
+    if ($(this).scrollTop()>0){
+        $('#fk-mainhead-id').fadeOut();
     }
-    document.getElementById('result').innerHTML = parseString(a);
-    // Add processing code here
-}
-*/
+    else{
+      $('#fk-mainhead-id').fadeIn();
+    }
+});
