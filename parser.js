@@ -1,23 +1,27 @@
 function parseString(query){
     query_arr = query.split(" ");
 
+    search_string = "search";
     if(query_arr[0] == "search")
     {
         // search code
-        search_string = query.replace("search ","");
+        search_string = "search";
         console.log(search_string);
+        return search_string;
     }
     else if(query_arr[0] == "include")
     {
         // include code 
-        search_string = query.replace("include ","");
+        search_string = "include";
         console.log(search_string);
+        return search_string;
     }
     else if(query_arr[0] == "exclude")
     {
         // exclude code
-        search_string = query.replace("exclude ","");
+        search_string = "exclude";
         console.log(search_string);
+        return search_string;
     }
   return search_string;
 }
@@ -34,7 +38,6 @@ function getSearchKeywords(query){
             'apikey': 'e6d05038ff5fe3c7ac9f6dae272b102fecd9c493',
             'text': query,
             'outputMode': 'json',
-
         },
         beforeSend: function(xhr) {
             console.log("Extracting keywords")
