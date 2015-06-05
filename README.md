@@ -17,6 +17,6 @@ Voice controlled online shopping assitant using Alchemy API and fuzzy search.
 * Once it searches for the product you can inlude filters by saying include. For example, you can say `include Adidas`.
 * Exclude filters by saying `exclude Adidas`.
 * View a product in detai lby saying `view`. For example, you can say `view moto x 16 gb`.
-* Add the product to cart by saying `add to cart` or `add cart`.
+* Add the product to cart by saying `add to cart` or `add cart`(Not available due to security measure in the website).
 
 Built for Flipkart Hackday 6, June 2015.

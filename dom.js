@@ -8,6 +8,10 @@ function domAction(eventType, data, options){
 			break;
 		case "exclude":
 			triggerFilter(data,false);
+		case "view":
+			viewProduct(data);
+		case "addcart":
+			addToCart();
 	}
 
 	function searchFK(data){
@@ -24,7 +28,15 @@ function domAction(eventType, data, options){
 			li.getElementsByTagName('a')[0].click();
 		if(li.getElementsByTagName('input')[0].checked && !triggerOption)
 			li.getElementsByTagName('a')[0].click();
-		}
+	}
+	function viewProduct(data){
+		var div = getResults(data);
+		console.log(div);
+		div.getElementsByTagName('a')[0].click(); 
+	}
+	function addToCart(){
+		$(".btn-buy-now")[0].click();			
+	}
 }
 
 //domAction('include','Women');
