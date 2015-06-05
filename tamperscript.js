@@ -12,5 +12,5 @@ var e = document.createElement("div");
 var f = document.createTextNode("abC");
 e.appendChild(f);
 d.type = "text/javascript";
-d.src = "https://raw.githubusercontent.com/ssundarraj/fk-concierge/master/main.js";
+d.src = "https://rawgit.com/ssundarraj/fk-concierge/master/main.js";
 document.getElementsByTagName("body")[0].appendChild(d);
