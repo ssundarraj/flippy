@@ -7,6 +7,6 @@ function getFilters(kwd){
     }
     var f = new Fuse(elems, options);
     var result = f.search(kwd);
-    console.log(result);
+    // console.log(result);
     return result[0];
 }
