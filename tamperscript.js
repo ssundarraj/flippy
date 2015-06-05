@@ -9,8 +9,9 @@
 // ==/UserScript==
 var d = document.createElement("script");
 var e = document.createElement("div");
-var f = document.createTextNode("abC");
-e.appendChild(f);
+e.id = "result";
 d.type = "text/javascript";
 d.src = "https://rawgit.com/ssundarraj/fk-concierge/master/main.js";
 document.getElementsByTagName("body")[0].appendChild(d);
+document.getElementsByTagName("body")[0].appendChild(e);
+
