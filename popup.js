@@ -1,5 +1,10 @@
 var recognition = new webkitSpeechRecognition();
 recognition.onresult = function(event) {
-	console.log(event);
-	// Add processing code here
+    console.log(event);
+    var a = "";
+    for(var i=0; i<event.results.length; i++){
+        a = a + event.results[i][0].transcript
+    }
+    document.getElementById('result').innerHTML = a;
+    // Add processing code here
 }
