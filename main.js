@@ -29,4 +29,6 @@ $("#voiceSearch").click(function(){
     localStorage.setItem('vQuery', '');
 })();
 
-okayFlipkart();
+$(document).ready(function(){
+  okayFlipkart();
+});

@@ -1,6 +1,8 @@
 function getUserSpeechInput(callback, voiceBar){
     console.log('in');
     var recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
     recognition.onresult = function(event){
         var voiceQueryString = event.results[0][0].transcript;
         console.log(voiceQueryString); //Full voice query
@@ -11,33 +13,47 @@ function getUserSpeechInput(callback, voiceBar){
             // console.log(m);
             // console.log(action);
             callback(action, m);
-            okayFlipkart();
         });
     }
-    recognition.start()
+    recognition.start();
 }
 
 
 function okayFlipkart()
 {
     var fkrecognition = new webkitSpeechRecognition();
-    console.log("outsideresult"+fkrecognition);
+    fkrecognition.continuous = true;
+    fkrecognition.interimResults = true;
+    console.log("outsideresult",fkrecognition);
+    var voiceQueryString = '';
     fkrecognition.onresult = function(event){
-        var voiceQueryString = event.results[0][0].transcript;
-        console.log(voiceQueryString); //Full voice query
-        // console.log("insideonresult"+this); // getting this = fkrecognition
+        for(var i =0;i<event.results.length;i++){
+           voiceQueryString += event.results[i][0].transcript;
+        }
         
-        if(voiceQueryString == "ok flipkart")
-        {
-            this.stop();
-            $("#voiceSearch").trigger("click");
+        console.log(voiceQueryString);
+        // console.log("insideonresult"+this); // getting this = fkrecognition
+        console.log(event.results);
+        if(voiceQueryString.indexOf("ok flipkart") > -1)
+         {
+            $("#voiceSearch").css('background', 'green');
+            fkrecognition.abort();
+            $("#voiceSearch").trigger('click');
+       
         }
         else
         {
-            okayFlipkart();
+            $("#voiceSearch").css('background', 'red');
+            voiceQueryString = '';
         }
     }
-    fkrecognition.start()   
+    fkrecognition.onerror = function(){
+        console.log("on error");
+    };
+    fkrecognition.onnomatch= function(){
+        console.log("no match");
+    };
+    fkrecognition.start();
 }
 
 function parseString(query){
@@ -86,11 +102,17 @@ function getSearchKeywords(query,callback){
         }
     }).done(function(data) {
         console.log(data);
-        if(data.status == "OK" && data.keywords != undefined && data.keywords[0].text != undefined){
+        if(data.keywords.length !== 0){
+            if(data.status == "OK" && data.keywords != undefined && data.keywords[0].text != undefined){
             callback(data.keywords[0].text);
         }
         else{
-            callback("ERROR");
+            $("#voiceSearch").css('background', 'orange');
+            okayFlipkart();
         }
+        }else{
+            $("#voiceSearch").css('background', 'gold');
+            okayFlipkart();
+        }   
     });    
 }

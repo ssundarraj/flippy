@@ -8,10 +8,6 @@
 // @grant        none
 // ==/UserScript==
 //d.src = "https://rawgit.com/ssundarraj/fk-concierge/master/main.js";
-var d = document.createElement("script");
-d.src = "http://localhost:8000/main.js";
-document.getElementsByTagName("body")[0].appendChild(d);
-
 var d1 = document.createElement("script");
 d1.src = "http://localhost:8000/vendor/jquery.min.js";
 document.getElementsByTagName("body")[0].appendChild(d1);
@@ -31,3 +27,7 @@ document.getElementsByTagName("body")[0].appendChild(d3);
 var d4 = document.createElement("script");
 d4.src = "http://localhost:8000/speech.js";
 document.getElementsByTagName("body")[0].appendChild(d4);
+
+var d = document.createElement("script");
+d.src = "http://localhost:8000/main.js";
+document.getElementsByTagName("body")[0].appendChild(d);
