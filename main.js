@@ -16,6 +16,13 @@ $(window).scroll(function() {
 });
 
 $("#voiceSearch").click(function(){
-    getUserSpeechInput(domAction);
+    getUserSpeechInput(domAction, function(data){
+    	$("#voiceSearch").val(data);
+    });
     $("#voiceSearch").blur();
 });
+
+(function(){
+	$("#voiceSearch").val(localStorage.getItem('vQuery'));
+	localStorage.setItem('vQuery', '');
+})();

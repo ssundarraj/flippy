@@ -1,9 +1,11 @@
-function getUserSpeechInput(callback){
+function getUserSpeechInput(callback, voiceBar){
     console.log('in');
     var recognition = new webkitSpeechRecognition();
     recognition.onresult = function(event){
         var voiceQueryString = event.results[0][0].transcript;
         console.log(voiceQueryString); //Full voice query
+        voiceBar(voiceQueryString);
+        localStorage.setItem('vQuery', voiceQueryString);
         var action = parseString(voiceQueryString);
         getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
             // console.log(m);
