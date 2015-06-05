@@ -15,11 +15,11 @@ function domAction(eventType, data, options){
 	}
 
 	function searchFK(data){
-		var searchBarInputs = $(".search-bar input");	
+		var searchBarInputs = jQuery(".search-bar input");	
 		var searchBox = searchBarInputs[0],
 		    submitButton = searchBarInputs[3];
 		searchBox.value = data;
-		$(submitButton).trigger("click");
+		jQuery(submitButton).trigger("click");
 	}
 
 	function triggerFilter(data,triggerOption){
@@ -35,7 +35,7 @@ function domAction(eventType, data, options){
 		div.getElementsByTagName('a')[0].click(); 
 	}
 	function addToCart(){
-		$(".btn-buy-now")[0].click();			
+		jQuery(".btn-buy-now")[0].click();			
 	}
 }
 

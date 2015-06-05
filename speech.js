@@ -36,14 +36,14 @@ function okayFlipkart()
         console.log(event.results);
         if(voiceQueryString.indexOf("ok flipkart") > -1)
          {
-            $("#voiceSearch").css('background', 'green');
+            jQuery("#voiceSearch").css('background', 'green');
             fkrecognition.abort();
-            $("#voiceSearch").trigger('click');
+            jQuery("#voiceSearch").trigger('click');
        
         }
         else
         {
-            $("#voiceSearch").css('background', 'red');
+            jQuery("#voiceSearch").css('background', 'red');
             voiceQueryString = '';
         }
     }
@@ -92,7 +92,7 @@ function parseString(query){
 
 
 function getSearchKeywords(query,callback){
-    $.ajax({
+    jQuery.ajax({
         type: "POST",
         url: "http://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
         headers: {
@@ -113,11 +113,11 @@ function getSearchKeywords(query,callback){
             callback(data.keywords[0].text);
         }
         else{
-            $("#voiceSearch").css('background', 'orange');
+            jQuery("#voiceSearch").css('background', 'orange');
             okayFlipkart();
         }
         }else{
-            $("#voiceSearch").css('background', 'gold');
+            jQuery("#voiceSearch").css('background', 'gold');
             okayFlipkart();
         }   
     });    
