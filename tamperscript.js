@@ -31,5 +31,3 @@ document.getElementsByTagName("body")[0].appendChild(d3);
 var d4 = document.createElement("script");
 d4.src = "http://localhost:8000/speech.js";
 document.getElementsByTagName("body")[0].appendChild(d4);
-
-alert("TAMPER RUNNING")

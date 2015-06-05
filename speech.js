@@ -1,4 +1,5 @@
-function getUserSpeechInput(){
+function getUserSpeechInput(callback){
+    console.log('in');
     var recognition = new webkitSpeechRecognition();
     recognition.onresult = function(event){
         var voiceQueryString = event.results[0][0].transcript;
@@ -7,6 +8,7 @@ function getUserSpeechInput(){
         getSearchKeywords(voiceQueryString, function(m){
             console.log(m); //keyword from api call
             console.log(action); //action from parseString
+            callback(action,m);
         });
     }
     recognition.start()

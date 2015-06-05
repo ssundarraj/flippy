@@ -16,5 +16,6 @@ $(window).scroll(function() {
 });
 
 $("#voiceButton").click(function(){
-    getUserSpeechInput();
+    console.log("asdf");
+    getUserSpeechInput(console.log);
 });

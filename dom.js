@@ -1,6 +1,6 @@
-var domAction = function(eventType,data,options){
+var domAction = function(eventType, data, options){
 	switch(eventType){
-		case "searchFK":
+		case "search":
 			searchFK(data);
 			break;		
 		case "filter":
