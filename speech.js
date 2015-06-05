@@ -17,6 +17,18 @@ function getUserSpeechInput(callback, voiceBar){
 }
 
 
+function okayFlipkart()
+{
+    var fkrecognition = new webkitSpeechRecognition();
+    console.log("outsideresult"+fkrecognition);
+    fkrecognition.onresult = function(event){
+        var voiceQueryString = event.results[0][0].transcript;
+        console.log(voiceQueryString); //Full voice query
+        console.log("insideonresult"+this);
+    }
+    fkrecognition.start()   
+}
+
 function parseString(query){
     query_arr = query.split(" ");
 
