@@ -1,5 +1,4 @@
 function getFilters(kwd){
-    var arr = [];
     var elems = document.getElementsByClassName('facet');
     console.log(elems[40].title);
     var options = {
@@ -8,5 +7,18 @@ function getFilters(kwd){
     var f = new Fuse(elems, options);
     var result = f.search(kwd);
     // console.log(result);
+    return result[0];
+}
+
+
+function getResults(kwd){
+    var elems = document.getElementsByClassName('pu-title');
+    console.log(elems);
+    var options = {
+      keys: ['textContent']
+    }
+    var f = new Fuse(elems, options);
+    var result = f.search(kwd);
+    console.log(result[0].textContent);
     return result[0];
 }
