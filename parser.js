@@ -19,6 +19,6 @@ function getResults(kwd){
     }
     var f = new Fuse(elems, options);
     var result = f.search(kwd);
-    console.log(result[0].textContent);
+    console.log(result)
     return result[0];
 }

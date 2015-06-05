@@ -60,28 +60,33 @@ function parseString(query){
     query_arr = query.split(" ");
 
     search_string = "search";
-    if(query_arr[0] == "search")
-    {
+    if(query_arr[0] == "search"){
         // search code
         search_string = "search";
         // console.log(search_string);
         return search_string;
     }
-    else if(query_arr[0] == "include")
-    {
+    else if(query_arr[0] == "include"){
         // include code 
         search_string = "include";
         // console.log(search_string);
         return search_string;
     }
-    else if(query_arr[0] == "exclude")
-    {
+    else if(query_arr[0] == "exclude"){
         // exclude code
         search_string = "exclude";
         // console.log(search_string);
         return search_string;
     }
-  return search_string;
+    else if(query_arr[0] == "view"){
+        search_string = "exclude";
+        return search_string;
+    }
+    else if(query_arr[0] == "add" && query_arr[0] == "to" && query_arr[0] == "cart"){
+        search_string = "addcart";
+        return search_string;
+    }
+    return search_string;
 }
 
 
