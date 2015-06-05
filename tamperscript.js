@@ -8,9 +8,6 @@
 // @grant        none
 // ==/UserScript==
 var d = document.createElement("script");
-var e = document.createElement("div");
-var f = document.createTextNode("abC");
-e.appendChild(f);
-d.type = "application/javascript";
-d.src = "https://rawgit.com/ssundarraj/fk-concierge/master/main.js";
+//d.src = "https://rawgit.com/ssundarraj/fk-concierge/master/main.js";
+d.src = "http://localhost:8000/main.js";
 document.getElementsByTagName("body")[0].appendChild(d);
