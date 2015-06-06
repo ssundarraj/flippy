@@ -9363,7 +9363,7 @@ function okayFlipkart(){
         console.log(event.results);
         if(voiceQueryString.indexOf("ok flipkart") > -1)
          {
-            // jQuery("#voiceSearch").css('background', 'green');
+            jQuery("#voiceSearch").css('color', 'green');
             beep();
             fkrecognition.abort();
             jQuery("#voiceSearch").trigger('click');
@@ -9379,7 +9379,7 @@ function okayFlipkart(){
 	// }
         else
         {
-            // jQuery("#voiceSearch").css('background', 'red');
+            jQuery("#voiceSearch").css('color', 'red');
             voiceQueryString = '';
         }
     }
