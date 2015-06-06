@@ -4,6 +4,7 @@ function domAction(eventType, data, options){
 			searchFK(data);
 			break;
 		case "include":
+			alert(data);
 			triggerFilter(data,true);
 			break;
 		case "exclude":

@@ -15,10 +15,14 @@ function getUserSpeechInput(callback, voiceBar){
         else if(action === 'viewcart'){
             callback(action);
         }
+        else if((action === 'include')||(action === 'exclude')){
+            callback(action,voiceQueryString.replace(action, ""));
+        }
         else{
             getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
                 // console.log(m);
                 // console.log(action);
+                // alert(action);
                 callback(action, m);
             });    
         }
@@ -50,14 +54,14 @@ function okayFlipkart(){
             jQuery("#voiceSearch").trigger('click');
        
         }
-	else if(voiceQueryString.indexOf("scroll down") > -1){
-		jQuery('html, body').animate({ 
-			scrollTop: jQuery(document).height()-jQuery(window).height()}, 
-			1400, 
-			"easeOutQuint"
-			);	
-		voiceQueryString = '';
-	}
+	// else if(voiceQueryString.indexOf("scroll down") > -1){
+	// 	jQuery('html, body').animate({ 
+	// 		scrollTop: jQuery(document).height()-jQuery(window).height()}, 
+	// 		1400, 
+	// 		"easeOutQuint"
+	// 		);	
+	// 	voiceQueryString = '';
+	// }
         else
         {
             // jQuery("#voiceSearch").css('background', 'red');
