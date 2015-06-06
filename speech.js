@@ -40,14 +40,15 @@ function okayFlipkart(){
         console.log(event.results);
         if(voiceQueryString.indexOf("ok flipkart") > -1)
          {
-            jQuery("#voiceSearch").css('background', 'green');
+            // jQuery("#voiceSearch").css('background', 'green');
+            beep();
             fkrecognition.abort();
             jQuery("#voiceSearch").trigger('click');
        
         }
         else
         {
-            jQuery("#voiceSearch").css('background', 'red');
+            // jQuery("#voiceSearch").css('background', 'red');
             voiceQueryString = '';
         }
     }
