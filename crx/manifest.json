@@ -3,7 +3,7 @@
   "version": "0.1",
   "manifest_version": 2,
   "content_scripts": [{
-    "matches": ["http://*/*"],
+    "matches": ["http://*.flipkart.com/*"],
     "js": ["contentscript.js"]
   }],
   "permissions":[
