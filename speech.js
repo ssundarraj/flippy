@@ -9,11 +9,16 @@ function getUserSpeechInput(callback, voiceBar){
         voiceBar(voiceQueryString);
         localStorage.setItem('vQuery', voiceQueryString);
         var action = parseString(voiceQueryString);
-        getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
-            // console.log(m);
-            // console.log(action);
-            callback(action, m);
-        });
+        if(action === 'addcart'){
+            callback(action);
+        }else{
+            getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
+             // console.log(m);
+             // console.log(action);
+                callback(action, m);
+            });    
+        }
+        
     }
     recognition.start();
 }
@@ -79,11 +84,11 @@ function parseString(query){
         return search_string;
     }
     else if(query_arr[0] == "view"){
-        search_string = "exclude";
+        search_string = "view";
         return search_string;
     }
-    else if((query_arr[0] == "add" && query_arr[1] == "to" && query_arr[2] == "cart") || (query_arr[0] == "add" && query_arr[1] == "cart")){
-        // ^ "add to cart" or "add cart"
+    //else if((query_arr[0] == "add" && query_arr[1] == "to" && query_arr[2] == "cart") || (query_arr[0] == "add" && query_arr[1] == "cart")){
+    else if(query === 'add to cart'){   // ^ "add to cart" or "add cart"
         search_string = "addcart";
         return search_string;
     }

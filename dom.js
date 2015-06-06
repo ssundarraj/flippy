@@ -2,14 +2,16 @@ function domAction(eventType, data, options){
 	switch(eventType){
 		case "search":
 			searchFK(data);
-			break;		
+			break;
 		case "include":
 			triggerFilter(data,true);
 			break;
 		case "exclude":
 			triggerFilter(data,false);
+			break;
 		case "view":
 			viewProduct(data);
+			break;
 		case "addcart":
 			addToCart();
 	}
