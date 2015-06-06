@@ -18,3 +18,4 @@ cat ./vendor/jquery.min.js ./vendor/fuse.min.js parser.js dom.js speech.js main.
 #document.getElementsByTagName("body")[0].appendChild(d1);
 #EOM
 cp bundle.js crx/js/script.js
+google-chrome --pack-extension=./crx

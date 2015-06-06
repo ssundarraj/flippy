@@ -1,6 +1,6 @@
 {
-  "name": "Chrome Extension",
-  "version": "1.0",
+  "name": "Flippy",
+  "version": "0.1",
   "manifest_version": 2,
   "content_scripts": [{
     "matches": ["http://*/*"],
