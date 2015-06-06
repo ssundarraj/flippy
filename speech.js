@@ -11,7 +11,11 @@ function getUserSpeechInput(callback, voiceBar){
         var action = parseString(voiceQueryString);
         if(action === 'addcart'){
             callback(action);
-        }else{
+        }
+        else if(action === 'viewcart'){
+            callback(action);
+        }
+        else{
             getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
                 // console.log(m);
                 // console.log(action);
@@ -89,6 +93,10 @@ function parseString(query){
     }
     else if(query === 'add to cart'){   // ^ "add to cart" or "add cart"
         search_string = "addcart";
+        return search_string;
+    }
+    else if(query === 'view cart'){   // ^ "view cart"
+        search_string = "viewcart";
         return search_string;
     }
     return search_string;

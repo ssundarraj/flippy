@@ -14,6 +14,10 @@ function domAction(eventType, data, options){
 			break;
 		case "addcart":
 			addToCart();
+			break;
+		case "viewcart":
+			viewCart();
+			break;
 	}
 
 	function searchFK(data){
@@ -39,6 +43,11 @@ function domAction(eventType, data, options){
 	function addToCart(){
 		jQuery(".btn-buy-now")[0].click();
 		location.reload();			
+	}
+	function viewCart(){
+		// jQuery('.btn-cart')[0].trigger("click");
+		window.location.href = "https://www.flipkart.com/viewcart";
+		// location.reload('');			
 	}
 }
 
