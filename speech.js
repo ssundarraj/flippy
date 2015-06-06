@@ -50,6 +50,14 @@ function okayFlipkart(){
             jQuery("#voiceSearch").trigger('click');
        
         }
+	else if(voiceQueryString.indexOf("scroll down") > -1){
+		jQuery('html, body').animate({ 
+			scrollTop: jQuery(document).height()-jQuery(window).height()}, 
+			1400, 
+			"easeOutQuint"
+			);	
+		voiceQueryString = '';
+	}
         else
         {
             // jQuery("#voiceSearch").css('background', 'red');
@@ -75,6 +83,10 @@ function parseString(query){
         // console.log(search_string);
         return search_string;
     }
+    else if(query === 'view cart'){   // ^ "view cart"
+        search_string = "viewcart";
+        return search_string;
+    }
     else if(query_arr[0] == "include"){
         // include code 
         search_string = "include";
@@ -93,10 +105,6 @@ function parseString(query){
     }
     else if(query === 'add to cart'){   // ^ "add to cart" or "add cart"
         search_string = "addcart";
-        return search_string;
-    }
-    else if(query === 'view cart'){   // ^ "view cart"
-        search_string = "viewcart";
         return search_string;
     }
     return search_string;
