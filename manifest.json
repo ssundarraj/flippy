@@ -3,19 +3,20 @@
   "name": "Flippy v0",
   "description": "Flippy",
   "version": "1.0",
-
   "browser_action": {
     "default_icon": "icon.png",
+    "default_popup": "bookmarklet.html",
     "default_title": "Flipsearch"
   },
   "permissions": [
-      "activeTab",
-      "https://ajax.googleapis.com/"
+      "tabs",
+      "http://*/*",
+      "https://*/*"  
   ],
   "content_scripts": [
     {
       "matches": ["http://www.flipkart.com/*"],
-      "js": ["http://code.jquery.com/jquery-1.11.3.min.js", "vendor/fuse.min.js", "parser.js", "dom.js", "speech.js", "main.js"]
+      "js": ["bundle.js"]
     }
   ]
 }

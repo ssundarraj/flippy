@@ -9403,7 +9403,7 @@ function parseString(query){
         search_string = "addcart";
         return search_string;
     }
-    else if(query === 'view cart'){   // ^ "add to cart" or "add cart"
+    else if(query === 'view cart'){   // ^ "view cart"
         search_string = "viewcart";
         return search_string;
     }
