@@ -9346,7 +9346,7 @@ function okayFlipkart(){
         }
         else
         {
-            jQuery("#voiceSearch").css('background', 'red');
+            // jQuery("#voiceSearch").css('background', 'red');
             voiceQueryString = '';
         }
     }

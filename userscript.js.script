@@ -9,5 +9,5 @@
 // @grant        none
 // ==/UserScript==
 var d1 = document.createElement("script");
-d1.src = "http://localhost:8000/dist/bundle.js";
+d1.src = "http://localhost:8000/bundle.js";
 document.getElementsByTagName("body")[0].appendChild(d1);
