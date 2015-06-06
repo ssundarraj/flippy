@@ -7,7 +7,7 @@ function getUserSpeechInput(callback, voiceBar){
         var voiceQueryString = event.results[0][0].transcript;
         console.log(voiceQueryString); //Full voice query
         voiceBar(voiceQueryString);
-        localStorage.setItem('vQuery', voiceQueryString);
+        localStorage.setItem('vQuery', voiceQueryString.replace("new","view"));
         var action = parseString(voiceQueryString);
         if(action === 'addcart'){
             callback(action);
@@ -79,7 +79,11 @@ function okayFlipkart(){
 
 function parseString(query){
     query_arr = query.split(" ");
-
+    
+    if(query_arr[0] == "new")
+    {
+        query_arr[0] = "view";
+    }    
     search_string = "search";
     if(query_arr[0] == "search"){
         // search code
