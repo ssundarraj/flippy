@@ -1,0 +1,13 @@
+{
+  "name": "Chrome Extension",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_scripts": [{
+    "matches": ["http://*/*"],
+    "js": ["contentscript.js"]
+  }],
+  "permissions":[
+    "http://*/*"
+  ],
+  "web_accessible_resources": ["js/script.js"]
+}
