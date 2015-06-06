@@ -13,8 +13,8 @@ function getUserSpeechInput(callback, voiceBar){
             callback(action);
         }else{
             getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
-             // console.log(m);
-             // console.log(action);
+                // console.log(m);
+                // console.log(action);
                 callback(action, m);
             });    
         }
@@ -24,8 +24,7 @@ function getUserSpeechInput(callback, voiceBar){
 }
 
 
-function okayFlipkart()
-{
+function okayFlipkart(){
     var fkrecognition = new webkitSpeechRecognition();
     fkrecognition.continuous = true;
     fkrecognition.interimResults = true;
@@ -87,7 +86,6 @@ function parseString(query){
         search_string = "view";
         return search_string;
     }
-    //else if((query_arr[0] == "add" && query_arr[1] == "to" && query_arr[2] == "cart") || (query_arr[0] == "add" && query_arr[1] == "cart")){
     else if(query === 'add to cart'){   // ^ "add to cart" or "add cart"
         search_string = "addcart";
         return search_string;
