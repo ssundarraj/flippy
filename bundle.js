@@ -9290,7 +9290,8 @@ function domAction(eventType, data, options){
 		div.getElementsByTagName('a')[0].click(); 
 	}
 	function addToCart(){
-		jQuery(".btn-buy-now")[0].click();			
+		jQuery(".btn-buy-now")[0].click();
+		location.reload();			
 	}
 }
 
