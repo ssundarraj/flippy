@@ -9267,6 +9267,10 @@ function domAction(eventType, data, options){
 			break;
 		case "addcart":
 			addToCart();
+			break;
+		case "viewcart":
+			viewCart();
+			break;
 	}
 
 	function searchFK(data){
@@ -9293,6 +9297,11 @@ function domAction(eventType, data, options){
 		jQuery(".btn-buy-now")[0].click();
 		location.reload();			
 	}
+	function viewCart(){
+		// jQuery('.btn-cart')[0].trigger("click");
+		window.location.href = "https://www.flipkart.com/viewcart";
+		// location.reload('');			
+	}
 }
 
 //domAction('include','Women');
@@ -9310,7 +9319,11 @@ function getUserSpeechInput(callback, voiceBar){
         var action = parseString(voiceQueryString);
         if(action === 'addcart'){
             callback(action);
-        }else{
+        }
+        else if(action === 'viewcart'){
+            callback(action);
+        }
+        else{
             getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
                 // console.log(m);
                 // console.log(action);
@@ -9388,6 +9401,10 @@ function parseString(query){
     }
     else if(query === 'add to cart'){   // ^ "add to cart" or "add cart"
         search_string = "addcart";
+        return search_string;
+    }
+    else if(query === 'view cart'){   // ^ "add to cart" or "add cart"
+        search_string = "viewcart";
         return search_string;
     }
     return search_string;
