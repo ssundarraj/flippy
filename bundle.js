@@ -9418,11 +9418,11 @@ function getSearchKeywords(query,callback){
             callback(data.keywords[0].text);
         }
         else{
-            jQuery("#voiceSearch").css('background', 'orange');
+            // jQuery("#voiceSearch").css('background', 'orange');
             okayFlipkart();
         }
         }else{
-            jQuery("#voiceSearch").css('background', 'gold');
+            // jQuery("#voiceSearch").css('background', 'gold');
             okayFlipkart();
         }   
         }
