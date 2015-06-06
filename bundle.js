@@ -9410,6 +9410,9 @@ function getSearchKeywords(query,callback){
         }
     }).done(function(data) {
         console.log(data);
+        if(data.keywords != undefined)
+        {
+
         if(data.keywords.length !== 0){
             if(data.status == "OK" && data.keywords != undefined && data.keywords[0].text != undefined){
             callback(data.keywords[0].text);
@@ -9422,6 +9425,10 @@ function getSearchKeywords(query,callback){
             jQuery("#voiceSearch").css('background', 'gold');
             okayFlipkart();
         }   
+        }
+        else{
+            okayFlipkart();
+        }
     });    
 }
 jQuery("#fk-header-id").css("position", "relative");
