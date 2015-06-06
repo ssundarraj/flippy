@@ -50,6 +50,14 @@ function okayFlipkart(){
             jQuery("#voiceSearch").trigger('click');
        
         }
+	else if(voiceQueryString.indexOf("scroll down") > -1){
+		jQuery('html, body').animate({ 
+			scrollTop: jQuery(document).height()-jQuery(window).height()}, 
+			1400, 
+			"easeOutQuint"
+			);	
+		voiceQueryString = '';
+	}
         else
         {
             // jQuery("#voiceSearch").css('background', 'red');
