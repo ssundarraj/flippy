@@ -1,11 +1,10 @@
 function getUserSpeechInput(callback, voiceBar){
-    console.log('in');
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = false;
     recognition.onresult = function(event){
         var voiceQueryString = event.results[0][0].transcript;
-        console.log(voiceQueryString); //Full voice query
+        //console.log(voiceQueryString); //Full voice query
         voiceBar(voiceQueryString);
         localStorage.setItem('vQuery', voiceQueryString.replace("new","view"));
         var action = parseString(voiceQueryString);
@@ -18,11 +17,10 @@ function getUserSpeechInput(callback, voiceBar){
         else if((action === 'include')||(action === 'exclude')){
             callback(action,voiceQueryString.replace(action, ""));
         }
-        else{
+        else {
             getSearchKeywords(voiceQueryString.replace(action, ""), function(m){
                 // console.log(m);
                 // console.log(action);
-                // alert(action);
                 callback(action, m);
             });    
         }
@@ -31,49 +29,42 @@ function getUserSpeechInput(callback, voiceBar){
     recognition.start();
 }
 
-
 function okayFlipkart(){
     var fkrecognition = new webkitSpeechRecognition();
     fkrecognition.continuous = true;
     fkrecognition.interimResults = true;
     console.log("outsideresult",fkrecognition);
     var voiceQueryString = '';
+
     fkrecognition.onresult = function(event){
+
         for(var i =0;i<event.results.length;i++){
            voiceQueryString += event.results[i][0].transcript;
         }
-        
         console.log(voiceQueryString);
         // console.log("insideonresult"+this); // getting this = fkrecognition
         console.log(event.results);
-        if(voiceQueryString.indexOf("ok flipkart") > -1)
-         {
+
+        if(voiceQueryString.indexOf("ok flipkart") > -1) {
             jQuery("#voiceSearch").css('color', 'green');
             beep();
             fkrecognition.abort();
             jQuery("#voiceSearch").trigger('click');
-       
         }
-	// else if(voiceQueryString.indexOf("scroll down") > -1){
-	// 	jQuery('html, body').animate({ 
-	// 		scrollTop: jQuery(document).height()-jQuery(window).height()}, 
-	// 		1400, 
-	// 		"easeOutQuint"
-	// 		);	
-	// 	voiceQueryString = '';
-	// }
-        else
-        {
+        else {
             jQuery("#voiceSearch").css('color', 'red');
             voiceQueryString = '';
         }
     }
+    // Function to handle the error
     fkrecognition.onerror = function(){
         console.log("on error");
     };
+    // Function to handle nomatch
     fkrecognition.onnomatch= function(){
         console.log("no match");
     };
+    // Start Voice recognition
     fkrecognition.start();
 }
 
@@ -127,7 +118,7 @@ function getSearchKeywords(query,callback){
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         data: {
-            'apikey': 'e6d05038ff5fe3c7ac9f6dae272b102fecd9c493',
+            'apikey': '',
             'text': query,
             'outputMode': 'json',
         },
@@ -138,21 +129,21 @@ function getSearchKeywords(query,callback){
         console.log(data);
         if(data.keywords != undefined)
         {
-
-        if(data.keywords.length !== 0){
-            if(data.status == "OK" && data.keywords != undefined && data.keywords[0].text != undefined){
-            callback(data.keywords[0].text);
+            if(data.keywords.length !== 0){
+                if(data.status == "OK" && data.keywords != undefined && data.keywords[0].text != undefined){
+                callback(data.keywords[0].text);
+                }
+                else {
+                        // jQuery("#voiceSearch").css('background', 'orange');
+                    okayFlipkart();
+                }
+            }
+            else {
+                    // jQuery("#voiceSearch").css('background', 'gold');
+                okayFlipkart();
+            }   
         }
-        else{
-            // jQuery("#voiceSearch").css('background', 'orange');
-            okayFlipkart();
-        }
-        }else{
-            // jQuery("#voiceSearch").css('background', 'gold');
-            okayFlipkart();
-        }   
-        }
-        else{
+        else {
             okayFlipkart();
         }
     });    
