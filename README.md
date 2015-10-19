@@ -1,4 +1,4 @@
-# ok-flipkart
+# Flippy
 
 Voice controlled online shopping assitant using Alchemy API and fuzzy search.
 
@@ -21,3 +21,10 @@ Voice controlled online shopping assitant using Alchemy API and fuzzy search.
 * Add the product to cart by saying `add to cart` or `add cart`.
 
 Built for Flipkart Hackday 6, June 2015.
+
+## Contributors
+
+* [Sriram Sundarraj](https://github.com/ssundarraj)
+* [Karthik Vijay](https://github.com/CoolVoltage)
+* [Gokul Srinivas](https://github.com/GokulSrinivas)
+* [Vivek Siva](https://github.com/bindingofisaac)

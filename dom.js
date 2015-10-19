@@ -1,4 +1,4 @@
-function domAction(eventType, data, options){
+function domAction(eventType, data, options) {
 	switch(eventType){
 		case "search":
 			searchFK(data);
@@ -57,6 +57,3 @@ function domAction(eventType, data, options){
 		// location.reload('');			
 	}
 }
-
-//domAction('include','Women');
-//domAction('searchFK',"watch");
